@@ -9,6 +9,12 @@
 
 ## Descrição
 Banklegra é um projeto desenvolvido para a disciplina de Tópicos Especiais 1. Ele utiliza diversas tecnologias para criar uma aplicação web robusta e funcional.
+## Imagens do projeto
+![carteira](comunidade/static/imagens_readme/transferencia_.jpg)
+![loja](comunidade/static/imagens_readme/loja.jpg)
+![perfil](comunidade/static/imagens_readme/perfil.jpg)
+![feedback](comunidade/static/imagens_readme/feedback.jpg)
+![extrato](comunidade/static/imagens_readme/extrato.jpg)
 
 ## Instalação
 Para instalar as dependências do projeto, abra o terminal, navegue até a pasta onde o projeto está salvo e execute:
