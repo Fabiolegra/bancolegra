@@ -1,0 +1,47 @@
+{% extends "carteira.html" %}
+{% block trans %}
+<div class="container py-3">
+    <form method="POST" action="" class="border rounded rounded p-4 mt-2">
+    {{form.csrf_token}}
+    <h2>transferencia</h2>
+    <fieldset>
+        
+    <!-- login email -->
+    <div class="form_group">
+        {{form.conta.label(class="form-control-label str")}}
+        {% if form.conta.errors %}
+            {{form.conta(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.conta.errors %}
+                {{error}}
+            {% endfor %}
+        </div>
+        {% else %}
+            {{form.conta(class="form-control strb")}}
+        {% endif %}
+    </div>
+    
+    <!-- login valor -->
+    <div class="form_group">
+        {{form.valor.label(class="form-control-label str")}}
+        {% if form.valor.errors %}
+            {{form.valor(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.valor.errors %}
+                {{error}}
+            {% endfor %}
+        </div>
+        {% else %}
+            {{form.valor(class="form-control strb")}}
+        {% endif %}
+    </div>
+    
+    </fieldset>
+    
+    <!-- botão de login -->
+    {{form.botao_transferir(class="btn btn-outline-light mt-2 str")}}
+    
+</form>
+
+</div>
+{% endblock %}

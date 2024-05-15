@@ -1,0 +1,28 @@
+{% extends "base.html"%}
+{% block body %}
+<div class="container py-3">
+    <h1>Sua Carteira</h1>
+          <div class="card-body border rounded py-2 text-center" id="carteira">
+            <h2 class="my-3">Saldo: R$ {{current_user.saldo}}</h2>
+            <div class="d-flex justify-content-center mb-2">
+            <a href="{{url_for('extrato')}}">
+              <button type="button str" class="btn btn-outline-light str">Extrato</button>
+            </a>
+            {% if current_user.saldo>0%}
+              <a href="{{url_for('transcacao')}}">
+                  <button type="button" class="btn btn-outline-light ms-1 str">Transferir</button>
+              </a>
+            </div>
+            {% else %}
+            <a href="{{url_for('emprestimo')}}">
+                  <button type="button" class="btn btn-danger ms-1 str">Emprestar</button>
+              </a>
+            </div>
+            {% endif %}
+          </div>
+</div>
+{% block trans %}
+{% endblock %}
+{% block form_emprestimo %}
+{% endblock %}
+{% endblock %}

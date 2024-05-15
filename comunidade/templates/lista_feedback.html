@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container py-3">
+    <a class="my-2" href="{{url_for('criar_feedback')}}">
+    <button class="btn btn-sm btn-outline-light my-1 str">Criar Feedback</button>
+    </a>
+    <h3>Lista de Feedbacks</h3>
+    <hr>
+    {% for post in posts %}
+    <div class="container row border rounded mt-4 p-3">
+        <div class="col col-3">
+             <img src="{{post.autor.foto}}" alt="foto de perfil"
+              class="rounded-circle img-fluid" style="width: 150px;">
+              <p>{{post.autor.username}}</p>
+        </div>
+        <div class="col col-9">
+            <a href="{{url_for('exibir_feedback',post_id = post.id)}}" style='text-decoration:none'>
+                <h3>{{ post.titulo }}</h3>
+             </a>
+            <p>{{ post.corpo }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

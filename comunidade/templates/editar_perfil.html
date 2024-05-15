@@ -1,0 +1,53 @@
+{% extends "perfil.html" %}
+{% block editar_perfil %}
+<div class="container py-3">
+    <form method="POST" action="" class="border rounded p-4 " enctype="multipart/form-data">
+    {{form.csrf_token}}
+    <h3>Editar Perfil</h3>
+    <fieldset>
+    <!-- editar o Username da conta -->
+    <div class="form-group">
+    {{form.username.label(class="form-control-label str")}}
+    {% if form.username.errors %}
+            {{form.username(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.username.errors %}
+                {{error}}
+            {% endfor %}
+        </div>
+    {% else %}
+        {{form.username(class="form-control strb")}}
+    {% endif %}
+    </div>
+    
+    <!-- local para adicionar foto de perfil -->
+    <div class="form-group">
+        {{form.foto_perfil.label(class="str")}}
+        {{form.foto_perfil(class="form-control-file str")}}
+        {% if form.foto_perfil.errors%}
+            {% for error in form.foto_perfil.errors%}
+                <span class="text-danger">{{error}}</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+        
+    <!-- tag -->
+    <hr>
+    <div class="form-check">
+        {{form.tags.label (class="str")}}
+        {{form.tags(class="form-select form-select-sm strb")}}
+    </div>
+    </fieldset>
+        
+    <!-- botão de confirmar alteração -->
+    {{form.botao_alterar(class="btn btn-outline-light mt-2 str")}}
+        
+    <!-- botão de cancelar alteração -->
+    <div class="button mt-2  d-flex flex-row align-items-center">
+        <a href="{{url_for('perfil')}}">
+            <button class="btn btn-sm btn-outline-light w-100 str">Voltar sem alterar</button>
+        </a>
+    </div>
+</form>
+</div>
+{% endblock %}

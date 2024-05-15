@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block body%}
+<div class="row d-flex justify-content-center align-items-center vh-90 py-3" >
+      <div class="col col-lg-10 mb-3 mb-lg-0">
+        <div class="card mb-3 py-3" style="border-radius: .5rem; border-color:white;"id="perfil">
+          <div class="row g-0">
+              
+            <div class="col-md-4 gradient-custom text-center justify-content-center str"
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <img src="{{current_user.foto}}"
+                alt="Foto de Perfil" class="rounded-circle mt-2" style="width: 150px;" />
+              <p>{{current_user.username}}</p>
+                <button class='btn btn-outline-light w-50 str' disabled>{{current_user.tagpagador}}</button>
+                
+                  <a href="{{url_for('editar_perfil')}}">
+                      <button class="btn btn-sm btn-outline-light str w-50 mt-1">editar</button>
+                  </a>
+            </div>
+            
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h6>Informações</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Email</h6>
+                    <p>{{current_user.email}}</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Telefone</h6>
+                    <p>123 456 78</p>
+                  </div>
+                </div>
+                
+                <h6>Projects</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Recent</h6>
+                    <p>Lorem ipsum</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Most Viewed</h6>
+                    <p>Dolor sit amet</p>
+                  </div>
+                </div>
+                
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% block editar_perfil %}
+{% endblock %}
+{% endblock %}

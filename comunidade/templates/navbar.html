@@ -1,0 +1,77 @@
+<header class="border-bottom border-1 border-white ">
+    <nav class="navbar navbar-expand-lg navbar-dark align-items-center align-content-center">
+        <div class="container">
+            <!-- logo -->
+            <a class="navbar-brand fw-bold" href="#">
+            <img src="{{url_for('static',filename='logobank.svg')}}" alt="" width="50" height="50">
+           Banco Legra</a>
+           
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                
+            <div class="offcanvas offcanvas-end  sidebar" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title fw-bold" id="offcanvasDarkNavbarLabel">Banco Legra</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                    
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 align-items-center">
+                     <!-- quando o usuario estiver logado mostre...-->
+                    {% if current_user.is_authenticated%}
+                        <li class="nav-item">
+                            <a class="nav-link kanit-semibold" href="{{url_for('carteira')}}">Carteira</a>
+                        </li>
+                         
+                         <li class="nav-item">
+                            <a class="nav-link kanit-semibold" href="{{url_for('lista_produto')}}">Loja</a>
+                         </li>
+                         <li class="nav-item">
+                            <a class="nav-link kanit-semibold" href="{{url_for('usuarios')}}">Usuarios</a>
+                         </li>
+                          
+                        <li class="nav-item">
+                            <a class="nav-link kanit-semibold" href="{{url_for('lista_feedback')}}">Feedbacks</a>
+                         </li>
+                          
+                         <li class="nav-item">
+                            <a class="nav-link kanit-semibold" href="{{url_for('perfil')}}">Perfil</a>
+                          </li>
+                          
+                        <a class="nav-link" href="{{url_for('sair')}}">
+                        <button class="btn btn-outline-light my-1 mt-lg-0 mx-1 str" type="button">
+                                Sair
+                        </button>
+                        </a>
+                         <!-- senão -->
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link kanit-semibold" aria-current="page" href="/">Home</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link kanit-semibold" href="{{url_for('sobre')}}">Sobre</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link kanit-semibold" href="{{url_for('contato')}}">Contato</a>
+                            </li>
+                            
+                            <a class="nav-link" href="{{url_for('criaconta')}}">
+                            <button class="btn btn-outline-light mt-1 mt-lg-0 mx-2 str" type="button">
+                                    Criar Conta
+                            </button>
+                            </a>
+                            
+                            <a class="nav-link" href="{{url_for('login')}}">
+                            <button class="btn btn-outline-light mt-1 mt-lg-0 mx-2 str" type="button">
+                            login
+                            </button>
+                            </a>
+                        {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+</header>

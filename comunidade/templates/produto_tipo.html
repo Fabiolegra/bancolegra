@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="py-3">
+    <a href="{{url_for('add_produto')}}">
+        <button type="button" class="btn btn-outline-light ms-1 str">Adicionar Produto</button>
+    </a>
+    <h1>Lista de {{tipo}}</h1>
+    <div class="d-flex justify-content-center">
+        <div class="row">
+            {% for produto in produtos%}
+                <div class="card-produto col-md-4 mt-2" style="min-width:96px;">
+                    <div class="card border border-1 border-white ">
+                        <div class="card-body">
+                            <div class="card-img-actions">
+                                <img src="{{produto.foto}}" class="card-img img-fluid" width="96" height="350" alt="">
+                            </div>
+                        </div>
+        
+                        <div class="card-body bg-light text-center">
+                            <div class="mb-2">
+                                <h6 class="font-weight-semibold mb-2 str">
+                                    <a href="{{url_for('produto', produto_id = produto.id)}}" class="text-default mb-2" data-abc="true">{{ produto.nome }}</a>
+                                </h6>
+                            </div>
+                            <h3 class="mb-0 font-weight-semibold strb">{{produto.preco}}</h3>
+                            <p class="text-muted mb-3 strb">de {{produto.vendedor}}</p>
+                            <a href="{{url_for('produto', produto_id = produto.id)}}">
+                                <button type="button" class="btn strb btn-outline-dark">Ver Mais</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

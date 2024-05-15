@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="py-3">
+    <div class="row border rounded mt-4 mx-2 p-3">
+        <div class="col col-3">
+             <img src="{{post.autor.foto}}" alt="foto de perfil"
+              class="rounded-circle img-fluid" style="width: 150px;">
+              <strong>{{post.autor.username}}</strong>
+        </div>
+        <div class="col col-9">
+            <h3>{{ post.titulo }}<small class="text-muted" style="font-size:10px"> - Data criação: {{post.data_criacao}}
+            {% if form %}
+            <a href="#staticBackdrop" class="btn btn-danger str" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style='text-decoration:none'>
+              Excluir Post
+            </a>
+            {% endif %}
+            </small>
+            </h3>
+            <hr>
+            <p>{{ post.corpo }}</p>
+        </div>
+    </div>
+</div>
+
+
+{% if form %}
+<div class="container" id="editar_feedback">
+    <form method="POST" action="" class="border p-4 mt-2">
+    {{form.csrf_token}}
+    <legend class="str">Editar Post</legend>
+    <fieldset>
+        
+    <!-- Titulo -->
+    <div class="form_group">
+        {{form.titulo.label(class="form-control-label str")}}
+        {% if form.titulo.errors %}
+            {{form.titulo(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.titulo.errors %}
+                {{error}}
+            {% endfor %}
+        </div>
+        {% else %}
+            {{form.titulo(class="form-control strb")}}
+        {% endif %}
+    </div>
+    
+    <!-- Texto -->
+    <div class="form_group">
+        {{form.texto.label(class="form-control-label str")}}
+        {% if form.texto.errors %}
+            {{form.texto(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.texto.errors %}
+                {{error}}
+            {% endfor %}
+        </div>
+        {% else %}
+            {{form.texto(class="form-control strb")}}
+        {% endif %}
+    </div>
+    
+    </fieldset>
+     <!-- botão de editar post -->
+    {{form.botao_cria_post(class="btn btn-outline-light str mt-2")}}
+    
+</form>
+</div>
+{% endif %}
+
+
+
+<!-- popout -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 str" id="staticBackdropLabel">Excluir Feedback</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body strb">
+        Você quer realmente excluir esse feedback?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary str" data-bs-dismiss="modal">Cancelar</button>
+        
+        <form method="POST" action="{{url_for('excluir_feedback',post_id = post.id)}}">
+            <button type="submit" class="btn btn-danger str">Excluir</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

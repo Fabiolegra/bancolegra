@@ -1,0 +1,141 @@
+#base,#navbar,#rodape,#login,#criarconta,#carteira,#perfil,#usuarios,body,.fundo{
+background: #a65aed ;
+    
+}
+.modal-content,.usuario-fundo{
+    background-color: #c172f3 !important;
+}
+
+@media (max-width:991px) {
+.sidebar{
+      background-color: #c172f3 !important;
+      max-width: 70%;
+  }
+}
+.botao:active,.botao:focus, botao:hover {
+    color: black }
+   
+
+.kanit-light {
+  font-family: "Kanit", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.kanit-regular {
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.kanit-medium {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: white;
+}
+
+.kanit-semibold,strk{
+  font-family: "Kanit", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  color: white;
+}
+.e{
+font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.kanit-bold ,h1,p,h3,h2,h6,h5,.str{
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: white;
+}
+
+.strb{
+font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: black;
+}
+
+.kanit-extrabold {
+  font-family: "Kanit", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.kanit-black {
+  font-family: "Kanit", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+
+
+
+
+.mt-50{
+
+    margin-top: 50px;
+}
+
+.mb-50{
+
+    margin-bottom: 50px;
+}
+
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #a65aed;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .1875rem;
+}
+
+.card-img-actions {
+    position: relative;
+}
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.card-img{
+
+    width: 350px;
+}
+
+.star{
+        color: red;
+}
+
+
+.bg-cart:hover {
+    
+    color:#fff;
+}
+
+.bg-buy {
+    background-color:green;
+    color:#fff;
+    padding-right: 29px;
+}
+.bg-buy:hover {
+    
+    color:#fff;
+}
+
+a{
+    text-decoration: none !important;
+}

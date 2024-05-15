@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="codigo py-3">
+    <p>Foi enviado o codigo para seu email</p>
+    <form method="POST" action="" class="border rounded rounded p-4 mt-2">
+    {{form.csrf_token}}
+    <h2>Cofirmar Email</h2>
+    <fieldset>
+
+    <!-- Codigo -->
+    <div class="form_group">
+        {{form.codigo.label(class="form-control-label str")}}
+        {% if form.codigo.errors %}
+            {{form.codigo(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.codigo.errors %}
+                {{error}}
+            {% endfor %}
+        </div>
+        {% else %}
+            {{form.codigo(class="form-control strb")}}
+        {% endif %}
+    </div>
+    
+    
+    
+    
+    </fieldset>
+    
+    <!-- botão-->
+    {{form.botao(class="btn btn-outline-light mt-2 str")}}
+    
+</form>
+
+</div>
+{% endblock %}

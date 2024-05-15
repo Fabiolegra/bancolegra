@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container py-3">
+    <form method="POST" action="" class="border rounded p-4 mt-2">
+    {{form.csrf_token}}
+    <h3>Criar Post</h3>
+    <fieldset>
+    <!-- Titulo -->
+    <div class="form_group">
+        {{form.titulo.label(class="form-control-label str")}}
+        {% if form.titulo.errors %}
+            {{form.titulo(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.titulo.errors %}
+                {{error}}
+            {% endfor %}
+        </div>
+        {% else %}
+            {{form.titulo(class="form-control strb")}}
+        {% endif %}
+    </div>
+    
+    <!-- Texto -->
+    <div class="form_group">
+        {{form.texto.label(class="form-control-label str")}}
+        {% if form.texto.errors %}
+            {{form.texto(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.texto.errors %}
+                {{error}}
+            {% endfor %}
+        </div>
+        {% else %}
+            {{form.texto(class="form-control strb")}}
+        {% endif %}
+    </div>
+    
+    </fieldset>
+    
+    <!-- botão de criar post -->
+    {{form.botao_cria_post(class="btn btn-outline-light mt-2 str")}}
+    
+</form>
+</div>
+{% endblock %}

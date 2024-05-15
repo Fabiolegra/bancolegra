@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block body %}
+<form method="POST" action="" >
+{{form.csrf_token}}
+    <div class="card-produto col-md-4 mt-2">
+        <div class="card border border-1 border-white ">
+            <div class="card-body">
+                <div class="card-img-actions">
+                    <img src="{{produto.foto}}" class="card-img img-fluid" width="96" height="350" alt="">
+                </div>
+            </div>
+    
+            <div class="card-body bg-light text-center">
+                <div class="mb-2">
+                    <h6 class="font-weight-semibold mb-2 str">
+                        <a href="{{url_for('produto', produto_id = produto.id)}}" class="text-default mb-2" data-abc="true">{{ produto.nome }}</a>
+                    </h6>
+                </div>
+                <h3 class="mb-0 font-weight-semibold strb">{{produto.preco}}</h3>
+                <p class="text-muted mb-3 str">{{produto.descricao}}</p>
+                {% if produto_editar %}
+                <a href="#staticBackdrop" class="btn btn-danger str" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style='text-decoration:none'>
+                  Excluir Produto
+                </a>
+                {% else %}
+                    {{form.botao_comprar(class="btn btn-outline-dark strb")}}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+<!-- mostre se for vendedor do produto-->
+{% if produto_editar %}
+<div class="py-3">
+    <form method="POST" action="" class="border rounded p-4 mt-2" enctype="multipart/form-data">
+    {{produto_editar.csrf_token}}
+    <h3>Editar Produto</h3>
+    <fieldset>
+    
+    <!-- Nome do produto-->
+    <div class="form-group">
+        {{produto_editar.nome.label(class="form-control-label str")}}
+        {% if produto_editar.nome.errors %}
+            {{produto_editar.nome(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in produto_editar.nome.errors %}
+                {{error}}
+            {% endfor %}
+        </div>
+        {% else %}
+            {{produto_editar.nome(class="form-control strb")}}
+        {% endif %}
+    </div>
+    
+    <!-- Descricao do produto -->
+    <div class="form-group">
+    {{produto_editar.descricao.label(class="form-control-label str")}}
+    {% if produto_editar.descricao.errors %}
+        {{produto_editar.descricao(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in produto_editar.descricao.errors %}
+                {{error}}
+            {% endfor %}
+        </div>
+    {% else %}
+        {{produto_editar.descricao(class="form-control strb")}}
+    {% endif %}
+    </div>
+    
+    <!-- editar o preco da conta -->
+    <div class="form-group">
+    {{produto_editar.preco.label(class="form-control-label str")}}
+    {% if produto_editar.preco.errors %}
+            {{produto_editar.preco(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in produto_editar.preco.errors %}
+                {{error}}
+            {% endfor %}
+        </div>
+    {% else %}
+        {{produto_editar.preco(class="form-control strb")}}
+    {% endif %}
+    </div>
+    
+    <!-- local para adicionar foto do produto -->
+    <div class="form-group">
+        {{produto_editar.foto_produto.label(class="str")}}
+        {{produto_editar.foto_produto(class="form-control-file str")}}
+        {% if produto_editar.foto_produto.errors%}
+            {% for error in produto_editar.foto_produto.errors%}
+                <span class="text-danger">{{error}}</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+        
+    <!-- tag -->
+    <hr>
+    <div class="form-check">
+        {{produto_editar.tipo.label (class="str")}}
+        {{produto_editar.tipo(class="form-select form-select-sm strb")}}
+    </div>
+    </fieldset>
+        
+    <!-- botão adicionar produto -->
+    {{produto_editar.botao_add_prod(class="btn btn-outline-light mt-2 str")}}
+        
+    <!-- botão de cancelar alteração -->
+    <div class="button mt-2  d-flex flex-row align-items-center">
+        <button class="btn btn-sm btn-outline-light str">Voltar sem alterar</button>
+    </div>
+</form>
+</div>
+{% endif %}
+
+<!-- popout -->
+<div class="container modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 str" id="staticBackdropLabel">Excluir Feedback</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body strb">
+        Você quer realmente excluir este produto?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary str" data-bs-dismiss="modal">Cancelar</button>
+        
+        <form method="POST" action="{{url_for('excluir_produto',produto_id = produto.id)}}">
+            <button type="submit" class="btn btn-danger str">Excluir</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

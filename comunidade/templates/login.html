@@ -1,0 +1,59 @@
+{% extends "base.html"%}
+{% block body %}
+<div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;border-color:white;" id="login">
+          <div class="card-body p-5 text-center">
+              
+            <form method="POST" action="" >
+            {{form.csrf_token}}
+            <h3 class="mb-1">Login</h3>
+            
+            <!-- email -->
+            <div class="form-outline mb-1">
+                {{form.email.label(class="form-control-label str")}}
+                {% if form.email.errors %}
+                    {{form.email(class="form-control is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                        {{error}}
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{form.email(class="form-control strb")}}
+                {% endif %}
+            </div>
+
+         <!-- senha -->
+        <div class="form-outline mb-1">
+                {{form.senha.label(class="form-control-label str")}}
+                {% if form.senha.errors %}
+                    {{form.senha(class="form-control is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.senha.errors %}
+                        {{error}}
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{form.senha(class="form-control strb")}}
+                {% endif %}
+        </div>
+
+            <!-- Checkbox -->
+        <div class="form-check d-flex justify-content-start mb-1">
+            {{form.lembra_dados(class="form-check-input")}}
+            <p class="mx-2">{{form.lembra_dados.label(class="form-check-label")}}</p>
+        </div>
+            <p class="m-1 strb">Não tem uma conta? <a href="{{url_for('criaconta')}}" class="str">clique aqui</a></p>
+            <p class="m-1 strb">Esqueceu a senha? <a href="{{url_for('alterar_senha')}}" class="str">clique aqui</a></p>
+            
+            <!-- botão de enviar login -->
+            {{form.botao_login(class="btn btn-outline-light mt-1 str")}}
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

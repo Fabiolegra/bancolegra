@@ -1,0 +1,81 @@
+{% extends "base.html"%}
+{% block body %}
+<!--- cria conta -->
+<div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem; border-color:white;" id="criarconta">
+          <div class="card-body p-5 text-center">
+            <form method="POST" action="">
+             {{form.csrf_token}}
+            <h3 class="mb-1">Criar Conta</h3>
+            
+            <!-- criar email -->
+            <div class="form-outline mb-1">
+                {{form.email.label(class="form-control-label str")}}
+                {% if form.email.errors %}
+                    {{form.email(class="form-control is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                        {{error}}
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{form.email(class="form-control strb")}}
+                {% endif %}
+            </div>
+
+         <!-- criar senha -->
+        <div class="form-outline mb-1">
+        {{form.senha.label(class="form-control-label str")}}
+        {% if form.senha.errors %}
+            {{form.senha(class="form-control is-invalid")}}
+            <div class="invalid-feedback">
+                {% for error in form.senha.errors %}
+                    {{error}}
+                {% endfor %}
+            </div>
+            {% else %}
+                {{form.senha(class="form-control strb")}}
+            {% endif %}
+        </div>
+        <!-- confirmar senha -->
+        <div class="form-outline mb-1">
+    {{form.confirmar_senha.label(class="form-control-label str")}}
+    {% if form.confirmar_senha.errors %}
+            {{form.confirmar_senha(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.confirmar_senha.errors %}
+                {{error}}
+            {% endfor %}
+        </div>
+        {% else %}
+            {{form.confirmar_senha(class="form-control strb")}}
+        {% endif %}
+        </div>
+        
+        <!-- criar username -->
+        <div class="form-outline mb-1">
+        {{form.username.label(class="form-control-label str")}}
+        {% if form.username.errors %}
+                {{form.username(class="form-control is-invalid")}}
+            <div class="invalid-feedback">
+                {% for error in form.username.errors %}
+                    {{error}}
+                {% endfor %}
+            </div>
+            {% else %}
+                 {{form.username(class="form-control strb")}}
+            {% endif %}
+        </div>
+        <p class="strb">Já tem uma conta? <a href="{{url_for('login')}}" class="str">clique aqui</a></p>
+            
+        <!-- botão de ciar conta -->
+        {{form.botao_cria(class="btn btn-outline-light mt-2 str")}}
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

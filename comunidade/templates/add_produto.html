@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="py-3">
+    <form method="POST" action="" class="border rounded p-4 mt-2" enctype="multipart/form-data">
+    {{form.csrf_token}}
+    <h3>Adicionar Produto</h3>
+    <fieldset>
+    
+    <!-- Nome do produto-->
+    <div class="form-group">
+        {{form.nome.label(class="form-control-label str")}}
+        {% if form.nome.errors %}
+            {{form.nome(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.nome.errors %}
+                {{error}}
+            {% endfor %}
+        </div>
+        {% else %}
+            {{form.nome(class="form-control strb")}}
+        {% endif %}
+    </div>
+    
+    <!-- Descricao do produto -->
+    <div class="form-group">
+    {{form.descricao.label(class="form-control-label str")}}
+    {% if form.descricao.errors %}
+        {{form.descricao(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.descricao.errors %}
+                {{error}}
+            {% endfor %}
+        </div>
+    {% else %}
+        {{form.descricao(class="form-control strb")}}
+    {% endif %}
+    </div>
+    
+    <!-- editar o preco da conta -->
+    <div class="form-group">
+    {{form.preco.label(class="form-control-label str")}}
+    {% if form.preco.errors %}
+            {{form.preco(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.preco.errors %}
+                {{error}}
+            {% endfor %}
+        </div>
+    {% else %}
+        {{form.preco(class="form-control strb")}}
+    {% endif %}
+    </div>
+    
+    <!-- local para adicionar foto do produto -->
+    <div class="form-group">
+        {{form.foto_produto.label(class="str")}}
+        {{form.foto_produto(class="form-control-file str")}}
+        {% if form.foto_produto.errors%}
+            {% for error in form.foto_produto.errors%}
+                <span class="text-danger">{{error}}</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+        
+    <!-- tag -->
+    <hr>
+    <div class="form-check">
+        {{form.tipo.label (class="str")}}
+        {{form.tipo(class="form-select form-select-sm strb")}}
+    </div>
+    </fieldset>
+        
+    <!-- botão adicionar produto -->
+    {{form.botao_add_prod(class="btn btn-outline-light mt-2 str")}}
+        
+    <!-- botão de cancelar alteração -->
+    <div class="button mt-2  d-flex flex-row align-items-center">
+        <a href="{{url_for('perfil')}}">
+            <button class="btn btn-sm btn-outline-light w-100 str">Voltar sem alterar</button>
+        </a>
+    </div>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "carteira.html" %}
+{% block form %}
+<div class="container py-3">
+    <form method="POST" action="" class="border rounded p-4 mt-2">
+    {{form.csrf_token}}
+    <h2>Endividai-me</h2>
+    <fieldset>
+    <!-- valor -->
+    <div class="form_group">
+        {{form.valor.label(class="form-control-label str")}}
+        {% if form.valor.errors %}
+            {{form.valor(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.valor.errors %}
+                {{error}}
+            {% endfor %}
+        </div>
+        {% else %}
+            {{form.valor(class="form-control strb")}}
+        {% endif %}
+    </div>
+    
+    </fieldset>
+    
+    <!-- botão de login -->
+    {{form.botao_emprestar(class="btn btn-outline-light mt-2 str")}}
+    
+</form>
+
+</div>
+{% endblock %}
