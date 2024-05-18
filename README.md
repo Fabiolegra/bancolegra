@@ -10,7 +10,21 @@
 ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 ## Descrição
-Banklegra é um projeto desenvolvido para a disciplina de Tópicos Especiais 1. Ele utiliza diversas tecnologias para criar uma aplicação web robusta e funcional.
+
+**Banklegra** é um protótipo de banco digital desenvolvido para a disciplina de Tópicos Especiais 1.
+
+## Funcionalidades
+
+- **Sistema de Login Seguro**: Usuários devem confirmar um código enviado por email para completar a criação da conta, garantindo maior segurança.
+- **Recuperação de Senha**: Permite aos usuários redefinir a senha em caso de perda ou esquecimento.
+- **Carteira Digital**: extrato e transferências.
+- **Empréstimos**: Solicitação, aprovação de empréstimos.
+- **Transferências**: Transferência de dinheiro rápida entre usuário.
+- **Alteração de Perfil**: Atualização de foto de perfil, nome, tag do usuário.
+- **Feedback de Usuário**: Postagem de feedbacks para melhorar a experiência bancária.
+- **Marketplace**: Venda e compra de produtos variados na plataforma.
+- **Edição de produtos e Feedbacks**: todos os usuarios podem vender na plataforma.
+  
 ## Imagens do projeto
 ![carteira](comunidade/static/imagens_readme/transferencia_.jpg)
 ![loja](comunidade/static/imagens_readme/loja.jpg)
