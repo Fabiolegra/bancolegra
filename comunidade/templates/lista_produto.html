@@ -6,7 +6,7 @@
     </a>
     <div class="d-flex justify-content-center mt-40 mb-50">
     <div class="row">
-    {% for x in lista %}
+    {% for x in categorias %}
         {% set n = namespace(value=0) %}
         {% for produto in produtos%}
             {% if produto.tipo == x and n.value!=3%}

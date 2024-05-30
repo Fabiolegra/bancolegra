@@ -7,7 +7,7 @@
     {% for extrato in extratos_env %}
     <div class="row border rounded mt-4 p-3">
         <div class="col col-3">
-            <img src="{{lista_Usuarios.query.filter_by(email = extrato.rec_email).first().foto}}" alt="foto de perfil"
+            <img src="{{lista_usuarios.query.filter_by(email = extrato.rec_email).first().foto}}" alt="foto de perfil"
               class="rounded-circle img-fluid" style="width: 150px;">
         </div>
         <div class="col col-9">
@@ -27,9 +27,8 @@
             <img src="{{url_for('static',filename='logo.jpg')}}" alt="foto do banco"
               class="rounded-circle img-fluid" style="width: 150px;">
             {% else %}
-            <img src="{{lista_Usuarios.query.filter_by(email = extrato.env_email).first().foto}}" alt="foto de perfil"
+            <img src="{{lista_usuarios.query.filter_by(email = extrato.env_email).first().foto}}" alt="foto de perfil"
               class="rounded-circle img-fluid" style="width: 150px;">
-           
             {% endif %}
         </div>
         <div class="col col-9">
