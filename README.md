@@ -6,9 +6,23 @@
 ![Dropbox](https://img.shields.io/badge/Dropbox-%233B4D98.svg?style=for-the-badge&logo=Dropbox&logoColor=white)
 ![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
-
+![SqlAlchemy]()
 ## Descrição
 Banklegra é um projeto desenvolvido para a disciplina de Tópicos Especiais 1. Ele utiliza diversas tecnologias para criar uma aplicação web robusta e funcional.
+
+**Banklegra** é um protótipo de banco digital que oferece uma ampla gama de serviços financeiros, incluindo carteira digital, empréstimos e transferências entre usuários. Além disso, permite a alteração de perfil, postagem de feedbacks e venda de produtos através de um marketplace integrado.
+
+## Funcionalidades
+
+- **Sistema de Login Seguro**: Usuários devem confirmar um código enviado por email para completar o login, garantindo maior segurança.
+- **Recuperação de Senha**: Permite aos usuários redefinir a senha em caso de perda ou esquecimento.
+- **Carteira Digital**: extrato e transferências.
+- **Empréstimos**: Solicitação, aprovação de empréstimos.
+- **Transferências**: Transferência de dinheiro rápida e segura entre usuários do Banklegra.
+- **Alteração de Perfil**: Atualize informações pessoais e preferências do usuário.
+- **Feedback de Usuário**: Postagem de feedbacks para melhorar a experiência bancária.
+- **Marketplace**: Venda e compra de produtos variados na plataforma.
+
 ## Imagens do projeto
 ![carteira](comunidade/static/imagens_readme/transferencia_.jpg)
 ![loja](comunidade/static/imagens_readme/loja.jpg)
@@ -43,3 +57,4 @@ Para rodar o projeto em sua máquina, abra o terminal, navegue até a pasta onde
 ```bash
 flask --app main run
 ```
+Sinta-se à vontade para contribuir ou reportar problemas!
